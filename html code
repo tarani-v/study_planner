@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI: Unleashing Academic Potential</title>
+  <style>
+    /* Pinterest-like background */
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f8d7da, #f7c1e0, #f1e7e9);
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 20px;
+      text-align: center;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .header {
+      font-size: 2.5rem;
+      color: #d63384;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .subheader {
+      font-size: 1.2rem;
+      color: #6c757d;
+      margin-bottom: 30px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+      color: #d63384;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    .form-group label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 1rem;
+      color: #fff;
+      background-color: #d63384;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #c2185b;
+    }
+
+    .stats p {
+      margin: 10px 0;
+      font-size: 1.1rem;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 10px;
+      background-color: #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .progress-bar .progress {
+      height: 100%;
+      width: 0%;
+      background-color: #d63384;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .leaderboard {
+      margin-top: 40px;
+    }
+
+    .leaderboard table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    .leaderboard th, .leaderboard td {
+      padding: 10px;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+
+    .chatbox {
+      margin-top: 40px;
+      text-align: left;
+    }
+
+    .chatbox textarea {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: none;
+    }
+
+    .chatbox button {
+      margin-top: 10px;
+      float: right;
+      padding: 10px 20px;
+      font-size: 1rem;
+      color: #fff;
+      background-color: #d63384;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="header">AI: Unleashing Academic Potential ✨</h1>
+    <p class="subheader">Plan your study routine, boost your productivity, and achieve your academic goals with AI!</p>
+
+    <div class="grid">
+      <!-- Left Section: Study Plan Input -->
+      <div class="card">
+        <h3>Create Study Schedule</h3>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <select id="subject">
+            <option value="Mathematics">Mathematics</option>
+            <option value="Physics">Physics</option>
+            <option value="Chemistry">Chemistry</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="time">Time Available (hours)</label>
+          <input type="number" id="time" min="1" placeholder="Enter hours">
+        </div>
+        <button class="btn" id="generateBtn">Generate Schedule</button>
+      </div>
+
+      <!-- Right Section: Stats -->
+      <div class="card stats">
+        <h3>Your Stats</h3>
+        <p>🏆 Points: <span id="points">0</span></p>
+        <p>🔥 Current Streak: <span id="currentStreak">7 days</span></p>
+        <p>⭐ Longest Streak: <span id="longestStreak">15 days</span></p>
+        <div class="progress-bar">
+          <div class="progress" id="progress"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Leaderboard Section -->
+    <div class="card leaderboard">
+      <h3>Leaderboard</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>John Doe</td>
+            <td>150</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Jane Smith</td>
+            <td>120</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Sam Wilson</td>
+            <td>100</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Chatbox Section -->
+    <div class="card chatbox">
+      <h3>Ask AI</h3>
+      <textarea id="chatInput" placeholder="Type your question here..."></textarea>
+      <button id="sendBtn">Send</button>
+    </div>
+  </div>
+
+  <script>
+    // Handle the button click and make the API call to the Flask backend
+    document.getElementById('generateBtn').addEventListener('click', async function () {
+      const subject = document.getElementById('subject').value;
+      const timeAvailable = parseInt(document.getElementById('time').value);
+
+      if (isNaN(timeAvailable) || timeAvailable <= 0) {
+        alert("Please enter a valid time!");
+        return;
+      }
+
+      try {
+        const response = await fetch('http://127.0.0.1:5000/generate_schedule', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ subject: subject, time_available: timeAvailable })
+        });
+
+        const data = await response.json();
+
+        if (data.error) {
+          alert(data.error);
+        } else {
+          alert(`AI Study Schedule for ${subject} (Time: ${timeAvailable} hours):\n\n${data.schedule}`);
+        }
+      } catch (error) {
+        alert("Error occurred while generating the schedule. Please try again.");
+      }
+    });
+
+    // Example: Update the progress bar to 50% as a placeholder
+    const progress = document.getElementById('progress');
+    function updateProgress(value) {
+      progress.style.width = `${value}%`;
+    }
+    updateProgress(50);
+  </script>
+</body>
+</html>
